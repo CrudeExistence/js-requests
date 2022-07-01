@@ -85,7 +85,6 @@ const ohMy = () => {
             let thisP = document.createElement('p');
             thisP.textContent = res.data[i];
             document.body.appendChild(thisP)
-            // targetDiv.appendChild(thisP.textContent =res.data[i]);
         }
     }).catch(err => {
         console.log(err)
@@ -107,9 +106,10 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
     
     We'll be updating this function in the next problem.
 */
+let sup = "sup my guys"
 
 const repeatMyParam = () => {
-    axios.get(`http://localhost:3000/repeat/${String}`).then((res) => {
+    axios.get(`http://localhost:3000/repeat/${sup}`).then((res) => {
         console.log(res.data)
         document.querySelector('#repeat-text').textContent = res.data
     }).catch(err => {
@@ -142,22 +142,13 @@ document.querySelector('#repeat-button').addEventListener("click", repeatMyParam
 // CODE HERE
 
 const newFunc = () => {
-    axios.get(`http://localhost:3000/query-test`, {animals})
+    axios.get(`http://localhost:3000/query-test?name=Dracula`)
     .then((res) => {
         console.log(res.data)
     }).catch(err => {
         console.log(err)
     })
 }
-
-// const newFunc = () => {
-//     axios.get(`http://localhost:3000/say-hello`)
-//     .then((res) => {
-//         console.log(res.data)
-//     }).catch(err => {
-//         console.log(err)
-//     })
-// }
 
 document.querySelector('#query-button').addEventListener('click', newFunc)
 
